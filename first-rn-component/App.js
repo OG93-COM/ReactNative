@@ -12,6 +12,7 @@ export default function App() {
       <Section/>
     </View>
     <View style={{  backgroundColor: '#495E57', }}>
+      
     </View>
     <View>
       <LittleLemonFooter/>
