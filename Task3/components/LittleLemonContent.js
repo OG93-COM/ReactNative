@@ -1,47 +1,24 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 
 export default function LittleLemonContent() {
+  const menuItemsToDisplay = [
+    'Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta',
+  ];
   return (
     <View style={{ flex: 0.8 }}>
-      <Text
+      <ScrollView
         style={{
-          paddingTop: 40,
-          fontSize: 28,
-          color: "#e3e3e3",
-          textAlign: "center",
-        }}
-      >
-        Welcome to Little Lemon
-      </Text>
-      <Text
-        style={{
-          padding: 30,
-          marginVertical: 8,
-          fontSize: 20,
-          color: "#e3e3e3",
-          textAlign: "center",
+          paddingHorizontal: 40,
+          paddingVertical: 40,
+          backgroundColor: "black",
         }}>
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-      </Text>
+        <Text style={{ color: 'white', fontSize: 40, flexWrap: 'wrap' }}>
+          View Menu
+        </Text>
+        <Text style={{ color: '#F4CE14', fontSize: 36 }}>
+          {menuItemsToDisplay[0]}
+        </Text>
+      </ScrollView>
     </View>
   );
 }
