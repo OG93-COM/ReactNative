@@ -11,9 +11,7 @@ export default function App() {
       <LittleLemonHeader />
       <Section/>
     </View>
-    <View style={{  backgroundColor: '#495E57', }}>
-      
-    </View>
+
     <View>
       <LittleLemonFooter/>
     </View>
