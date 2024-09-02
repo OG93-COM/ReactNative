@@ -1,6 +1,8 @@
 import { View, Text } from 'react-native';
 
 export default function LittleLemonHeader() {
+
+
   return (
     <View style={{ flex: 0.12, backgroundColor: '#F4CE14' }}>
       <Text
@@ -12,7 +14,9 @@ export default function LittleLemonHeader() {
           marginTop:10
         }}>
         Little Lemon
+
       </Text>
+
     </View>
   );
 }
