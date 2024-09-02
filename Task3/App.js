@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 
 import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonFooter";
@@ -13,8 +13,10 @@ export default function App() {
           backgroundColor: "#495E57",
         }}
         >
+        <ScrollView>
           <LittleLemonHeader />
           <LittleLemonContent />
+        </ScrollView>
       </View>
 
       <View style={{ backgroundColor: "#495E57" }}>
