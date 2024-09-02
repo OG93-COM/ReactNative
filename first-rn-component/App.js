@@ -7,14 +7,14 @@ export default function App() {
   return (
     <>
     <View
-      style={{ flex: 1, backgroundColor: '#495E57', }}>
+      style={{ flex: 0.96, backgroundColor: '#495E57', }}>
       <LittleLemonHeader />
       <Section/>
     </View>
 
-    <View>
+    <View style={{ flex: 0.04, backgroundColor: '#495E57', }}>
       <LittleLemonFooter/>
-    </View>
+    </View >
     </>
   );
 }

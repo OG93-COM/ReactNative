@@ -20,7 +20,7 @@ const Section = () => {
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </Text>
-      <Button color="#F4CE14"   title="Click Here"></Button>
+      <Button color="#F4CE14"   title="Click Here For More Details"></Button>
     </View>
   );
 };
