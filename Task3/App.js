@@ -13,10 +13,8 @@ export default function App() {
           backgroundColor: "#495E57",
         }}
         >
-        <ScrollView>
           <LittleLemonHeader />
           <LittleLemonContent />
-        </ScrollView>
       </View>
 
       <View style={{ backgroundColor: "#495E57" }}>
