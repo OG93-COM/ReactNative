@@ -4,8 +4,9 @@ import { View, Text, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container:{
     fontSize: 18,
-    color: 'black',
-    textAlign: 'center'
+    color: '#333333',
+    textAlign: 'center',
+    fontStyle:"italic"
   }
 })
 
@@ -13,7 +14,7 @@ export default function LittleLemonFooter() {
   return (
     <View
       style={{
-        backgroundColor: '#F4CE14',
+        backgroundColor: '#EE9972',
         marginBottom: 10,
       }}>
       <Text style={styles.container}>

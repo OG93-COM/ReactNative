@@ -11,12 +11,12 @@ export default function App() {
       <View
         style={{
           flex: 1,
-          backgroundColor: '#495E57',
+          backgroundColor: '#333333',
         }}>
         <LittleLemonHeader />
         <WelcomeScreen />
       </View>
-      <View style={{ backgroundColor: '#495E57' }}>
+      <View style={{ backgroundColor: '#333333' }}>
         <LittleLemonFooter />
       </View>
     </>

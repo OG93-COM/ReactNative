@@ -1,11 +1,11 @@
 import { View, Text , StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container:{ backgroundColor: '#F4CE14' },
+  container:{ backgroundColor: '#EE9972' },
   header:{
     padding: 40,
     fontSize: 30,
-    color: 'black',
+    color: '#EDEFEE',
     textAlign: 'center',
   }
 })
