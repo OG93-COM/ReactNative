@@ -33,14 +33,17 @@ const Item = ({ name }) => {
 };
 
 const MenuItems = () => {
-    
+
   const renderItem = ({ item }) => (
     <View style={styles.items}>
-        <Item style={styles.oneItem} name={item.name} />
+        <View style={styles.items}>
+            <Item style={styles.oneItem} name={item.id} />
+            <Item style={styles.oneItem} name={item.name} />
+        </View>
         <Item style={styles.oneItem} name={item.price} />
     </View>
   )
-  
+
 
   return (
     <View style={styles.container}>
