@@ -23,6 +23,9 @@ const menuItemsToDisplay = [
   { name: "Tiramisu", price: "$5.00", id: "20U" },
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
+const separator = ()=> (
+    <View style={styles.separator}></View>
+)
 
 const Item = ({ id, name, price }) => {
   return (
@@ -48,6 +51,7 @@ const MenuItems = () => {
         data={menuItemsToDisplay}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        ItemSeparatorComponent={separator}
       ></FlatList>
     </View>
   );
@@ -76,4 +80,8 @@ const styles = StyleSheet.create({
   oneItem: {
     flex: 1,
   },
+  separator:{
+    borderBottomWidth:1,
+    borderColor:"grey"
+  }
 });
