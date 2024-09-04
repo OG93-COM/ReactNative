@@ -24,35 +24,31 @@ const menuItemsToDisplay = [
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
 
-const Item = ({ name }) => {
-    return (
-    <View>
+const Item = ({ id, name, price }) => {
+  return (
+    <View style={styles.items}>
+      <View style={styles.items}>
+        <Text style={styles.textItems}> {id} </Text>
         <Text style={styles.textItems}> {name} </Text>
+      </View>
+      <Text style={styles.textItems}> {price} </Text>
     </View>
-    )
+  );
 };
 
 const MenuItems = () => {
-
   const renderItem = ({ item }) => (
-    <View style={styles.items}>
-        <View style={styles.items}>
-            <Item style={styles.oneItem} name={item.id} />
-            <Item style={styles.oneItem} name={item.name} />
-        </View>
-        <Item style={styles.oneItem} name={item.price} />
-    </View>
-  )
-
+    <Item name={item.name} price={item.price} id={item.id} />
+  );
 
   return (
     <View style={styles.container}>
-        <Text style={styles.textTitle}>List of Menu</Text>
-        <FlatList
+      <Text style={styles.textTitle}>List of Menu</Text>
+      <FlatList
         data={menuItemsToDisplay}
         keyExtractor={(item) => item.id}
-        renderItem={renderItem}>
-        </FlatList>
+        renderItem={renderItem}
+      ></FlatList>
     </View>
   );
 };
@@ -60,25 +56,24 @@ const MenuItems = () => {
 export default MenuItems;
 
 const styles = StyleSheet.create({
-    container:{flex:0.85},
-    textTitle:{
-        fontSize:20,
-        color:"#EE9972",
-        padding:20
-    },
-    items:{
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    textItems:{
-        color:"#F4CE14",
-        paddingVertical:10,
-        paddingHorizontal:20,
-        fontWeight:"600",
-        fontSize:16
-    },
-    oneItem:{
-        flex:1
-    }
-
-})
+  container: { flex: 0.85 },
+  textTitle: {
+    fontSize: 20,
+    color: "#EE9972",
+    padding: 20,
+  },
+  items: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  textItems: {
+    color: "#F4CE14",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    fontWeight: "600",
+    fontSize: 16,
+  },
+  oneItem: {
+    flex: 1,
+  },
+});
