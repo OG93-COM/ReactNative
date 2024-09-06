@@ -23,6 +23,7 @@ const menuItemsToDisplay = [
   { name: "Tiramisu", price: "$5.00", id: "20U" },
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
+
 const separator = ()=> (
     <View style={styles.separator}></View>
 )
