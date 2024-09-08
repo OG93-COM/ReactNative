@@ -24,18 +24,14 @@ const menuItemsToDisplay = [
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
 
-const separator = ()=> (
-    <View style={styles.separator}></View>
-)
-const headerListText = ()=> (
-    <Text style={styles.textTitle}>List of Menu</Text>
-)
-const footerListText = ()=> (
-    <Text style={styles.textFooterList}>End of FlatList 🙈</Text>
-)
-const emptyText = ()=> (
-    <Text style={styles.textFooterList}>This is empty Array</Text>
-)
+const separator = () => <View style={styles.separator}></View>;
+const headerListText = () => <Text style={styles.textTitle}>List of Menu</Text>;
+const footerListText = () => (
+  <Text style={styles.textFooterList}>End of FlatList 🙈</Text>
+);
+const emptyText = () => (
+  <Text style={styles.textFooterList}>This is empty Array</Text>
+);
 
 const Item = ({ id, name, price }) => {
   return (
@@ -56,7 +52,6 @@ const MenuItems = () => {
 
   return (
     <View style={styles.container}>
-      
       <FlatList
         data={menuItemsToDisplay}
         keyExtractor={(item) => item.id}
@@ -78,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#EE9972",
     padding: 20,
-    textAlign:"center"
+    textAlign: "center",
   },
   items: {
     flexDirection: "row",
@@ -94,14 +89,14 @@ const styles = StyleSheet.create({
   oneItem: {
     flex: 1,
   },
-  separator:{
-    borderBottomWidth:1,
-    borderColor:"grey"
+  separator: {
+    borderBottomWidth: 1,
+    borderColor: "grey",
   },
-  textFooterList:{
-    textSize:12,
-    color:'grey',
-    textAlign:"center",
-    paddingTop:20
-  }
+  textFooterList: {
+    textSize: 12,
+    color: "grey",
+    textAlign: "center",
+    paddingTop: 20,
+  },
 });
