@@ -10,6 +10,8 @@ import {
 
 export default function WelcomeScreen() {
   const [firstName, onChangeFirstName] = React.useState("");
+  const [lastName, onChangeLastName] = React.useState("");
+  const [message, onChangeMessage] = React.useState("");
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -35,9 +37,24 @@ export default function WelcomeScreen() {
         <TextInput
           style={styles.input}
           keyboardType={"default"}
-          placeholder={"Please enter First Name Here"}
+          placeholder={"Please enter your First Name Here"}
           value={firstName}
           onChangeText={onChangeFirstName}
+        />
+        <TextInput
+          style={styles.input}
+          keyboardType={"default"}
+          placeholder={"Please enter your Last Name Here"}
+          value={lastName}
+          onChangeText={onChangeLastName}
+        />
+        <TextInput
+          style={styles.inputMessage}
+          keyboardType={"default"}
+          placeholder={"Please enter Message Here"}
+          value={message}
+          onChangeText={onChangeMessage}
+          multiline={true}
         />
       </ScrollView>
     </KeyboardAvoidingView>
@@ -64,6 +81,18 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "grey",
     color: "white",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
+    marginBottom: 20,
+    borderRadius: 5,
+    borderColor: "#EDEFEE",
+    borderWidth: 1,
+  },
+  inputMessage: {
+    backgroundColor: "grey",
+    color: "white",
+    height:100,
     paddingVertical: 5,
     paddingHorizontal: 10,
     marginHorizontal: 5,
