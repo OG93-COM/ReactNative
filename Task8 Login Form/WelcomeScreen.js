@@ -13,14 +13,14 @@ import {
 export default function WelcomeScreen() {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
-  const [messageValidation,onChangeMessageValidation] = React.useState("")
+  const [messageValidation,setMessageValidation] = React.useState("")
 
   const handleLogin = ()=> {
     if(email !== "" && password !==""){
       Alert.alert("✅ Welcome");
-      onChangeMessageValidation("")
+      setMessageValidation("")
     } else {
-      onChangeMessageValidation("Please add your information to login")
+      setMessageValidation("Please add your information to login")
     }
   }
   return (
@@ -38,6 +38,7 @@ export default function WelcomeScreen() {
           value={email}
           onChangeText={onChangeEmail}
           maxLength={50}
+          clearButtonMode={"always"}
         />
         <TextInput
           style={styles.input}
@@ -47,6 +48,7 @@ export default function WelcomeScreen() {
           onChangeText={onChangePassword}
           maxLength={30}
           secureTextEntry={true}
+          clearButtonMode={"always"}
         />
         {messageValidation !== "" && (
           <Text style={styles.validation}>{messageValidation}</Text>
