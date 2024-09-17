@@ -11,6 +11,8 @@ import {
 export default function WelcomeScreen() {
   const [firstName, onChangeFirstName] = React.useState("");
   const [lastName, onChangeLastName] = React.useState("");
+  const [phoneNum, onChangePhoneNum] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
   const [message, onChangeMessage] = React.useState("");
   return (
     <KeyboardAvoidingView
@@ -24,22 +26,13 @@ export default function WelcomeScreen() {
           and classic cocktails in a lively but casual environment. We would
           love to hear more about your experience with us!
         </Text>
-        <Text style={styles.regularText}>
-          Little Lemon is a charming neighborhood bistro that serves simple food
-          and classic cocktails in a lively but casual environment. We would
-          love to hear more about your experience with us!
-        </Text>
-        <Text style={styles.regularText}>
-          Little Lemon is a charming neighborhood bistro that serves simple food
-          and classic cocktails in a lively but casual environment. We would
-          love to hear more about your experience with us!
-        </Text>
         <TextInput
           style={styles.input}
           keyboardType={"default"}
           placeholder={"Please enter your First Name Here"}
           value={firstName}
           onChangeText={onChangeFirstName}
+          maxLength={30}
         />
         <TextInput
           style={styles.input}
@@ -47,6 +40,24 @@ export default function WelcomeScreen() {
           placeholder={"Please enter your Last Name Here"}
           value={lastName}
           onChangeText={onChangeLastName}
+          maxLength={30}
+        />
+        <TextInput
+          style={styles.input}
+          keyboardType={"phone-pad"}
+          placeholder={"Please enter your Phone Number"}
+          value={phoneNum}
+          onChangeText={onChangePhoneNum}
+          maxLength={30}
+        />
+        <TextInput
+          style={styles.input}
+          keyboardType={"default"}
+          placeholder={"Please enter your Password"}
+          value={password}
+          onChangeText={onChangePassword}
+          maxLength={30}
+          secureTextEntry={true}
         />
         <TextInput
           style={styles.inputMessage}
@@ -55,6 +66,7 @@ export default function WelcomeScreen() {
           value={message}
           onChangeText={onChangeMessage}
           multiline={true}
+          maxLength={250}
         />
       </ScrollView>
     </KeyboardAvoidingView>
@@ -63,7 +75,7 @@ export default function WelcomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.85,
   },
   headerText: {
     padding: 40,
