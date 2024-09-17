@@ -11,13 +11,23 @@ export default function LoginScreen() {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+  const [validationMessage, setValidationMessage] = useState("");
+
+  const handleLogin = () => {
+    if (email !== "" && password !==""){
+      setIsLogin(false)
+      setValidationMessage("")
+    }else {
+      setValidationMessage("Please Enter you Email and Password")
+    }
+  }
 
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
       {!isLogin && (
         <>
-          <Text style={styles.regularText}>You Are Logged IN</Text>
+          <Text style={styles.regularText}>You Are Logged IN as {email}</Text>
           <Pressable
             style={styles.pressbleCenter}
             onPress={() => setIsLogin(true)}
@@ -46,10 +56,11 @@ export default function LoginScreen() {
           />
           <Pressable
             style={styles.pressbleCenter}
-            onPress={() => setIsLogin(false)}
+            onPress={handleLogin}
           >
             <Text style={styles.buttonLogin}>Login</Text>
           </Pressable>
+          <Text style={styles.validation}>{validationMessage}</Text>
         </>
       )}
     </ScrollView>
@@ -98,5 +109,12 @@ const styles = StyleSheet.create({
   },
   pressbleCenter: {
     alignItems: "center",
+  },
+  validation: {
+    fontSize: 12,
+    padding: 5,
+    marginVertical: 2,
+    color: "red",
+    textAlign: "center",
   },
 });
