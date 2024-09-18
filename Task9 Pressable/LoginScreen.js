@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ScrollView,
   Text,
+  View,
   StyleSheet,
   TextInput,
   Pressable,
@@ -28,10 +29,12 @@ export default function LoginScreen() {
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
       {!isLogin && (
         <>
-          <Image style={styles.logo} source={require("./assets/logo.png")} resizeMode="center"/>
+        <View style={styles.centerItem}>
+          <Image style={styles.logo} source={require("./assets/logo.png")} resizeMode="contain"/>
+        </View>
           <Text style={styles.regularText}>You Are Logged IN as {email}</Text>
           <Pressable
-            style={styles.pressbleCenter}
+            style={styles.centerItem}
             onPress={() => setIsLogin(true)}
           >
             <Text style={styles.buttonLogin}>Logout</Text>
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: 200,
   },
-  pressbleCenter: {
+  centerItem: {
     alignItems: "center",
   },
   validation: {
@@ -121,6 +124,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: 100,
-    width: 410,
+    width: 310,
+    alignItems:"center"
  },
 });
