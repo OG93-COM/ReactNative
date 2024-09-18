@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   Pressable,
+  Image,
 } from "react-native";
 
 export default function LoginScreen() {
@@ -27,6 +28,7 @@ export default function LoginScreen() {
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
       {!isLogin && (
         <>
+          <Image style={styles.logo} source={require("./assets/logo.png")} resizeMode="center"/>
           <Text style={styles.regularText}>You Are Logged IN as {email}</Text>
           <Pressable
             style={styles.pressbleCenter}
@@ -117,4 +119,8 @@ const styles = StyleSheet.create({
     color: "red",
     textAlign: "center",
   },
+  logo: {
+    height: 100,
+    width: 410,
+ },
 });
