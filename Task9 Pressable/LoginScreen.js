@@ -30,7 +30,13 @@ export default function LoginScreen() {
       {!isLogin && (
         <>
         <View style={styles.centerItem}>
-          <Image style={styles.logo} source={require("./assets/logo.png")} resizeMode="contain"/>
+          <Image
+          style={styles.logo}
+          source={require("./assets/logo.png")}
+          resizeMode="contain"
+          accessible={true}
+          accessibilityLabel="Logo Little Lemon Restaurant"
+          />
         </View>
           <Text style={styles.regularText}>You Are Logged IN as {email}</Text>
           <Pressable
