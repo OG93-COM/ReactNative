@@ -7,10 +7,15 @@ import {
   useColorScheme,
   useWindowDimensions,
 } from "react-native";
+import { useAppState } from "@react-native-community/hooks";
+
+//npm install @react-native-community/hooks
 
 export default function WelcomeScreen() {
   const colorScheme = useColorScheme();
   const {height, width, fontScale} = useWindowDimensions();
+  const appState = useAppState()
+
   return (
     <ScrollView
       style={[
@@ -36,9 +41,10 @@ export default function WelcomeScreen() {
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!
       </Text>
-      <Text style={styles.regularText}> width : {width}</Text>
-      <Text style={styles.regularText}> Height : {height}</Text>
-      <Text style={styles.regularText}> fontScale : {fontScale}</Text>
+      <Text style={styles.regularHooks}> width : {width}</Text>
+      <Text style={styles.regularHooks}> Height : {height}</Text>
+      <Text style={styles.regularHooks}> fontScale : {fontScale}</Text>
+      <Text style={styles.regularHooks}> App State : {appState}</Text>
     </ScrollView>
   );
 }
@@ -66,6 +72,13 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     color: "grey",
+    textAlign: "center",
+  },
+  regularHooks: {
+    fontSize: 18,
+    padding: 5,
+    marginVertical: 2,
+    color: "green",
     textAlign: "center",
   },
   image: {
