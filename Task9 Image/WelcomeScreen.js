@@ -6,11 +6,18 @@ import {
   StyleSheet,
   Image,
   ImageBackground,
+  useColorScheme,
 } from "react-native";
 
 export default function WelcomeScreen() {
+  const colorScheme = useColorScheme();
   return (
-    <ScrollView indicatorStyle="white" style={styles.container}>
+    <ScrollView indicatorStyle="white" style={[
+      styles.container,
+      colorScheme === 'light'
+        ? { backgroundColor: '#fff' }
+        : { backgroundColor: '#333333' },
+    ]}>
       <View style={styles.logoHeader}>
         <Image
           source={require("./assets/logo.png")}
