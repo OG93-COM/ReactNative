@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   headerText: {
     padding: 40,
     fontSize: 30,
-    color: "#EDEFEE",
+    color: "grey",
     textAlign: "center",
   },
   regularText: {
