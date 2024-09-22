@@ -8,6 +8,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { useAppState } from "@react-native-community/hooks";
+
 //npm install @react-native-community/hooks
 
 export default function WelcomeScreen() {
