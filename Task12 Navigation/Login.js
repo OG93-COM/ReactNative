@@ -6,11 +6,12 @@ import {
   KeyboardAvoidingView,
   Platform,
   Button,
-  Image
+  Image,
+  Alert
 } from "react-native";
 import { useState } from "react";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
   const [messageValidation, setMessageValidation] = useState("");
@@ -19,6 +20,7 @@ const Login = () => {
     if (email !== "" && password !== "") {
       Alert.alert("✅ Welcome");
       setMessageValidation("");
+      navigation.navigate('Welcome');
     } else {
       setMessageValidation("Please add your information to login");
     }
@@ -29,11 +31,13 @@ const Login = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView keyboardDismissMode="on-drag">
-        <Image source={require("./assets/logo.png")}
+        <Image
+          source={require("./assets/logo.png")}
           resizeMode="cover"
           style={styles.logo}
           accessible={true}
-          accessiblityLabel="Logo of Little Lemon"/>
+          accessiblityLabel="Logo of Little Lemon"
+        />
         <Text style={styles.regularText}>Login to continue</Text>
         <TextInput
           style={styles.input}
@@ -65,53 +69,53 @@ const Login = () => {
         />
       </ScrollView>
     </KeyboardAvoidingView>
-  )
+  );
 };
 
 export default Login;
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor:"#40534C",
-      textAlign:"center"
-    },
-    headerText: {
-      padding: 40,
-      fontSize: 30,
-      color: "#EDEFEE",
-      textAlign: "center",
-    },
-    regularText: {
-      fontSize: 24,
-      padding: 20,
-      marginVertical: 8,
-      color: "#EDEFEE",
-      textAlign: "center",
-    },
-    validation: {
-      fontSize: 12,
-      padding: 5,
-      marginVertical: 2,
-      color: "orange",
-      textAlign: "center",
-    },
-    input: {
-      backgroundColor: "#EEEEEE",
-      color: "white",
-      paddingVertical: 5,
-      paddingHorizontal: 10,
-      marginHorizontal: 5,
-      marginBottom: 20,
-      borderRadius: 5,
-      borderColor: "#EDEFEE",
-      borderWidth: 1,
-    },
-    logo: {
-        width: 100,
-        height: 100,
-        marginTop: 20,
-        marginHorizontal:150,
-        borderRadius: 10,
-      },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: "#40534C",
+    textAlign: "center",
+  },
+  headerText: {
+    padding: 40,
+    fontSize: 30,
+    color: "#EDEFEE",
+    textAlign: "center",
+  },
+  regularText: {
+    fontSize: 24,
+    padding: 20,
+    marginVertical: 8,
+    color: "#EDEFEE",
+    textAlign: "center",
+  },
+  validation: {
+    fontSize: 12,
+    padding: 5,
+    marginVertical: 2,
+    color: "orange",
+    textAlign: "center",
+  },
+  input: {
+    backgroundColor: "#EEEEEE",
+    color: "black",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
+    marginBottom: 20,
+    borderRadius: 5,
+    borderColor: "#EDEFEE",
+    borderWidth: 1,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    marginTop: 20,
+    marginHorizontal: 150,
+    borderRadius: 10,
+  },
+});
