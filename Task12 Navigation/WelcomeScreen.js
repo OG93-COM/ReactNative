@@ -1,18 +1,23 @@
 import * as React from "react";
-import { ScrollView, Text, StyleSheet, Image } from "react-native";
+import { ScrollView, Text, StyleSheet, Image, Pressable } from "react-native";
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
   return (
     <ScrollView keyboardDismissMode="on-drag" style={styles.container}>
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-      <Image source={require("./assets/logo.png")}
-          resizeMode="cover"
-          style={styles.logo}
-          accessible={true}
-          accessiblityLabel="Logo of Little Lemon"/>
+      <Image
+        source={require("./assets/logo.png")}
+        resizeMode="cover"
+        style={styles.logo}
+        accessible={true}
+        accessiblityLabel="Logo of Little Lemon"
+      />
       <Text style={styles.regularText}>
         Hi, This my first try for the Navigation On React Native
       </Text>
+      <Pressable onPress={() => navigation.goBack()}>
+        <Text style={styles.goBack}>Go Back</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -20,7 +25,7 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#40534C'
+    backgroundColor: "#40534C",
   },
   headerText: {
     padding: 40,
@@ -56,7 +61,11 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
-    marginHorizontal:150,
+    marginHorizontal: 150,
     borderRadius: 10,
   },
+  goBack:{
+    textAlign:"center",
+    color:"yellow",
+  }
 });
