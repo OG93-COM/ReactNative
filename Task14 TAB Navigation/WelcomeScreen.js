@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ScrollView, Text, StyleSheet, Image } from "react-native";
+import { ScrollView, Text, StyleSheet, Image, Pressable } from "react-native";
 
 export default function WelcomeScreen({navigation}) {
   return (
@@ -15,6 +15,9 @@ export default function WelcomeScreen({navigation}) {
       <Text style={styles.regularText}>
         Hi, This my first try for the Navigation On React Native
       </Text>
+      <Pressable onPress={() => navigation.goBack()}>
+        <Text style={styles.goBack}>Go Back</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -61,5 +64,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 150,
     borderRadius: 10,
   },
-
+  goBack:{
+    textAlign:"center",
+    color:"yellow",
+  }
 });

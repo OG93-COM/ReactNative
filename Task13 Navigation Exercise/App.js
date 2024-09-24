@@ -7,8 +7,10 @@ import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
 import LoginScreen from './LoginScreen';
 
+
 export default function App() {
   const Stack = createNativeStackNavigator();
+
   return (
     <>
         <View style={styles.container}>
@@ -18,6 +20,7 @@ export default function App() {
             <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login Page' }}/>
             <Stack.Screen name="Home" component={WelcomeScreen} options={{ title: 'Home Page' }}/>
           </Stack.Navigator>
+
         </NavigationContainer>
         </View>
         <View style={styles.footerContainer}>
