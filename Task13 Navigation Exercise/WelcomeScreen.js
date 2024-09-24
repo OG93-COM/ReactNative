@@ -1,15 +1,22 @@
-import { ScrollView, View, Text, StyleSheet, Image } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Pressable,
+} from "react-native";
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerWrapper}>
         <Image
           style={styles.image}
-          source={require('./img/logo.png')}
+          source={require("./img/logo.png")}
           resizeMode="cover"
           accessible={true}
-          accessibilityLabel={'Little Lemon Logo'}
+          accessibilityLabel={"Little Lemon Logo"}
         />
 
         <Text style={styles.headerText}>Little Lemon</Text>
@@ -19,6 +26,11 @@ export default function WelcomeScreen() {
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!
       </Text>
+      <Pressable onPress={()=> navigation.goBack()}>
+        <Text style={styles.regularText}>
+          Logout
+        </Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -26,11 +38,11 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#333333"
+    backgroundColor: "#333333",
   },
   headerWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
     margin: 10,
   },
   headerText: {
@@ -39,15 +51,15 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 10,
     fontSize: 30,
-    color: '#EDEFEE',
-    textAlign: 'center',
+    color: "#EDEFEE",
+    textAlign: "center",
   },
   regularText: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: '#EDEFEE',
-    textAlign: 'center',
+    color: "#EDEFEE",
+    textAlign: "center",
   },
   image: {
     width: 100,
@@ -55,5 +67,3 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-
