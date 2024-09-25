@@ -11,11 +11,11 @@ export default function LittleLemonHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.15,
+    flex: 0.12,
     backgroundColor: '#EE9972',
   },
   headerText: {
-    padding: 40,
+    paddingTop: 40,
     fontSize: 30,
     color: 'black',
     textAlign: 'center',
