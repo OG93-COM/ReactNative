@@ -9,7 +9,6 @@ import LoginScreen from "./LoginScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,15 +23,11 @@ export default function App() {
             screenOptions={({ route }) => ({
               tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
-
                 if (route.name === "Welcome") {
-                  iconName = focused
-                    ? "home"
-                    : "home-outline";
+                  iconName = focused ? "home" : "home-outline";
                 } else if (route.name === "Login") {
                   iconName = focused ? "enter" : "enter-outline";
                 }
-
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
               tabBarActiveTintColor: "tomato",
