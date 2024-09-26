@@ -1,16 +1,17 @@
-import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import * as React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
-import LittleLemonHeader from './components/LittleLemonHeader';
-import LittleLemonFooter from './components/LittleLemonFooter';
-import WelcomeScreen from './WelcomeScreen';
-import LoginScreen from './LoginScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LittleLemonHeader from "./components/LittleLemonHeader";
+import LittleLemonFooter from "./components/LittleLemonFooter";
+import WelcomeScreen from "./WelcomeScreen";
+import LoginScreen from "./LoginScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <>
       <NavigationContainer>
@@ -32,8 +33,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333333',
+    backgroundColor: "#333333",
   },
-  footerContainer: { backgroundColor: '#333333' },
+  footerContainer: { backgroundColor: "#333333" },
 });
-
