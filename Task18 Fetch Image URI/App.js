@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   SafeAreaView,
+  Image,
 } from "react-native";
 import menuItems from './menuItems.json'
 
@@ -35,7 +36,8 @@ export default App = () => {
           renderItem={renderItem}
           ItemSeparatorComponent={separator}
         ></FlatList>
-        
+        <Image source={{uri: 'https://reactjs.org/logo-og.png'}}
+        style={{width: 420, height: 150}} /> 
     </SafeAreaView>
   );
 };
