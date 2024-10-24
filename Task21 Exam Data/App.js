@@ -21,7 +21,7 @@ import { getSectionListData, useUpdateEffect } from './utils';
 
 const API_URL =
   'https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu-items-by-category.json';
-const sections = ['Appetizers', 'Salads', 'Beverages'];
+  export const sections = ['Appetizers', 'Salads', 'Beverages'];
 
 const Item = ({ title, price }) => (
   <View style={styles.item}>
@@ -39,36 +39,53 @@ export default function App() {
   );
 
   const fetchData = async() => {
-    // 1. Implement this function
-    
-    // Fetch the menu from the API_URL endpoint. You can visit the API_URL in your browser to inspect the data returned
-    // The category field comes as an object with a property called "title". You just need to get the title value and set it under the key "category".
-    // So the server response should be slighly transformed in this function (hint: map function) to flatten out each menu item in the array,
+    try {
+      const response = await fetch(API_URL);
+      const json = await response.json();
+      const menuItemsArray_nested = await json.menu;
+      const menuItemsArray_flattened =
+        await menuItemsArray_nested.map((item) => {
+          return {
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            category: item.category.title,
+          };
+        });
+      return menuItemsArray_flattened;
+    } catch (error) {
+      console.error(error);
+    }
     return [];
   }
 
-  useEffect(() => {
-    (async () => {
-      try {
-        await createTable();
-        let menuItems = await getMenuItems();
+  const loadMenuItems = useCallback(async () => {
+    try {
+      // Ensure the table exists before fetching data.
+      await createTable();
 
-        // The application only fetches the menu data once from a remote URL
-        // and then stores it into a SQLite database.
-        // After that, every application restart loads the menu from the database
-        if (!menuItems.length) {
-          const menuItems = await fetchData();
-          saveMenuItems(menuItems);
-        }
-
-        const sectionListData = getSectionListData(menuItems);
-        setData(sectionListData);
-      } catch (e) {
-        // Handle error
-        Alert.alert(e.message);
+      let res = await getMenuItems();
+      if (!res.length) {
+        // Fetch new data and save if local storage is empty.
+        res = await fetchData();
+        await saveMenuItems(res);
       }
-    })();
+
+      const sectionListData = getSectionListData(res);
+      setData(sectionListData);
+    } catch (error) {
+      // Log error and show an alert to the user.
+      console.error('Error loading menu items:', error);
+      Alert.alert(
+        'Error',
+        error.message || 'Failed to load menu items.'
+      );
+    }
   }, []);
+
+  useEffect(() => {
+    loadMenuItems();
+  }, [loadMenuItems]);
 
   useUpdateEffect(() => {
     (async () => {
@@ -110,7 +127,7 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+   <SafeAreaView style={styles.container}>
       <Searchbar
         placeholder="Search"
         placeholderTextColor="white"
@@ -121,11 +138,13 @@ export default function App() {
         inputStyle={{ color: 'white' }}
         elevation={0}
       />
+
       <Filters
         selections={filterSelections}
         onChange={handleFiltersChange}
         sections={sections}
       />
+
       <SectionList
         style={styles.sectionList}
         sections={data}
@@ -133,9 +152,13 @@ export default function App() {
         renderItem={({ item }) => (
           <Item title={item.title} price={item.price} />
         )}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.header}>{title}</Text>
-        )}
+        renderSectionHeader={({ section }) => {
+          if (section.data.length > 0) {
+            return <Text style={styles.header}>{section.title}</Text>;
+          } else {
+            return null;
+          }
+        }}
       />
     </SafeAreaView>
   );
