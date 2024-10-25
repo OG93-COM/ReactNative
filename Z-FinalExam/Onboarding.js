@@ -1,7 +1,7 @@
 import { ScrollView, View, Text, StyleSheet, Image, TextInput, Button, Pressable } from 'react-native';
 import * as React from "react";
 
-export default function WelcomeScreen() {
+export default function Onboarding() {
   const [firstName, onChangeFirstName] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
 
@@ -42,46 +42,45 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f4',
+    backgroundColor: '#cbd2da',
 
   },
   headerWrapper: {
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems:"center",
     margin: 10,
   },
   input: {
     alignSelf:"center",
-    color: "white",
+    color: "#334753",
     paddingVertical: 5,
     paddingHorizontal: 15,
     width:250,
     marginBottom: 20,
     borderRadius: 12,
-    borderColor: "#406d82",
+    borderColor: "#334753",
     borderWidth: 2,
   },
   regularText: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: '#385F71',
+    color: '#334753',
     textAlign: 'center',
   },
   buttonLogin: {
-    backgroundColor: "#406d82",
-    color: "white",
-    fontSize: 26,
-    fontWeight: "bold",
-    padding: 10,
+
+    color: "#334753",
+    fontSize: 16,
+    paddingVertical:5,
     marginVertical: 8,
-    margin: 0,
-    borderColor: "#EDEFEE",
+    borderColor: "#334753",
     borderWidth: 2,
-    borderRadius: 22,
+    borderRadius: 12,
     textAlign: "center",
     alignSelf:"center",
-    width: 200,
+    width: 120,
   },
   image: {
     width: 100,

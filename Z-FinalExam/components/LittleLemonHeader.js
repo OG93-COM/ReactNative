@@ -6,7 +6,7 @@ export default function LittleLemonHeader() {
   return (
     <View style={styles.container}>
       <Image
-          style={styles.image}
+          style={styles.logo}
           source={require('../img/Logo.png')}
           resizeMode="cover"
           accessible={true}
@@ -19,7 +19,7 @@ export default function LittleLemonHeader() {
 const styles = StyleSheet.create({
   container: {
     flex: 0.2,
-    backgroundColor: '#f5f5f2',
+    backgroundColor: '#dee3ea',
   },
   headerText: {
     paddingTop: 40,
@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
   },
-  image: {
-    width: 400,
+  logo: {
+    width: 200,
     height: 80,
-    marginTop: 20,
+    margin: 10,
 
   },
 });

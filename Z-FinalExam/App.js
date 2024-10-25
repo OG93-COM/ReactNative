@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import LittleLemonHeader from "./components/LittleLemonHeader";
-import WelcomeScreen from "./WelcomeScreen";
+import Onboarding from "./Onboarding";
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -15,7 +15,7 @@ export default function App() {
       
         <View style={styles.container}>
           <LittleLemonHeader />
-          <WelcomeScreen/>
+          <Onboarding/>
         </View>
         
       
