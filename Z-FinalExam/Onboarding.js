@@ -13,6 +13,7 @@ export default function Onboarding() {
       <Text style={styles.regularText}>
         Let us get to know you!
       </Text>
+      <Text style={styles.label}>Your First Name :</Text>
       <TextInput
           style={styles.input}
           keyboardType={"default"}
@@ -21,6 +22,7 @@ export default function Onboarding() {
           onChangeText={onChangeFirstName}
           maxLength={30}
         />
+        <Text style={styles.label}>Your Email : </Text>
         <TextInput
           style={styles.input}
           keyboardType={"default"}
@@ -51,6 +53,12 @@ const styles = StyleSheet.create({
     alignItems:"center",
     margin: 10,
   },
+  label:{
+    textAlign:"center",
+    padding:5,
+    fontSize:17,
+    color: '#334753'
+  },
   input: {
     alignSelf:"center",
     color: "#334753",
@@ -65,14 +73,15 @@ const styles = StyleSheet.create({
   regularText: {
     fontSize: 24,
     padding: 20,
-    marginVertical: 8,
+    marginTop: 30,
+    marginBottom: 50,
     color: '#334753',
     textAlign: 'center',
+    fontWeight:"bold",
   },
   buttonLogin: {
-
     color: "#334753",
-    fontSize: 16,
+    fontSize: 18,
     paddingVertical:5,
     marginVertical: 8,
     borderColor: "#334753",
