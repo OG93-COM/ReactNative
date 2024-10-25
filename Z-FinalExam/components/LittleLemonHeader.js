@@ -18,7 +18,7 @@ export default function LittleLemonHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.15,
+    flex: 0.3,
     backgroundColor: '#dee3ea',
     flexDirection: "row",
     justifyContent:"center"

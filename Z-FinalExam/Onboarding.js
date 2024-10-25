@@ -1,11 +1,29 @@
-import { ScrollView, View, Text, StyleSheet, Image, TextInput, Button, Pressable } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TextInput, Pressable, KeyboardAvoidingView, Alert, Keyboard } from 'react-native';
 import * as React from "react";
 
-export default function Onboarding() {
+export default function Onboarding({navigation}) {
   const [firstName, onChangeFirstName] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
+  const [messageValidation,setMessageValidation] = React.useState("")
+
+  const handleLogin = ()=> {
+    if(email !== "" && firstName !==""){
+      Keyboard.dismiss()
+      Alert.alert("✅ Welcome");
+      setMessageValidation("");
+      navigation.navigate("profile");
+    } else if(firstName !== ""){
+      setMessageValidation("Please add your email")
+    } else {
+      setMessageValidation("Please add your firstname")
+    }
+  }
 
   return (
+    <KeyboardAvoidingView
+    style={styles.container}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+  >
     <ScrollView style={styles.container}>
       <View style={styles.headerWrapper}>
 
@@ -31,13 +49,17 @@ export default function Onboarding() {
           onChangeText={onChangeEmail}
           maxLength={30}
         />
+        {messageValidation !== "" && (
+          <Text style={styles.validation}>{messageValidation}</Text>
+        )}
         <Pressable
             style={styles.centerItem}
-            onPress={() => setIsLogin(true)}
+            onPress={handleLogin}
           >
             <Text style={styles.buttonLogin}>NEXT</Text>
           </Pressable>
     </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -95,5 +117,12 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 20,
+  },
+  validation: {
+    fontSize: 12,
+    padding: 5,
+    marginVertical: 2,
+    color: "red",
+    textAlign: "center",
   },
 });
