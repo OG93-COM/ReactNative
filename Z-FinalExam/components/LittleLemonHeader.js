@@ -8,7 +8,7 @@ export default function LittleLemonHeader() {
       <Image
           style={styles.logo}
           source={require('../img/Logo.png')}
-          resizeMode="cover"
+          resizeMode="stretch"
           accessible={true}
           accessibilityLabel={'Little Lemon Logo'}
         />
@@ -18,19 +18,14 @@ export default function LittleLemonHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.2,
+    flex: 0.15,
     backgroundColor: '#dee3ea',
-  },
-  headerText: {
-    paddingTop: 40,
-    fontSize: 30,
-    color: 'black',
-    textAlign: 'center',
+    flexDirection: "row",
+    justifyContent:"center"
   },
   logo: {
-    width: 200,
-    height: 80,
-    margin: 10,
-
+    width: 250,
+    height: 60,
+    marginTop: 40,
   },
 });
